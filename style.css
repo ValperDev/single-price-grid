@@ -1,4 +1,5 @@
 :root {
+    --black: hsl(0, 0%, 0%, 10%);
     --cyan: hsl(179, 62%, 43%);
     --light-cyan: hsl(179, 62%, 43%, 80%);
     --bright-yellow: hsl(71, 73%, 54%);
@@ -50,26 +51,40 @@ main {
 }
 
 .container {
+    box-shadow: 0 0 35px var(--black);
     display: flex;
     flex-wrap: wrap;
-    max-width: 48rem;
+    margin: 2em;
+    max-width: 41rem;
 }
 
 .community {
+    border-radius: 10px 10px 0 0;
     background-color: var(--white);
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+    gap: 1em;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -ms-border-radius: 10px 10px 0 0;
+    -o-border-radius: 10px 10px 0 0;
 }
 
 .community__title {
     color: var(--cyan);
+    padding-bottom: .6em;
 }
 
 .community__sub-heading {
     color: var(--bright-yellow);
+    font-size: 1.1em;
+    font-weight: 700;
 }
 
 .community__content {
     color: var(--grayish-blue);
+    line-height: 1.7em;
 }
 
 .community,
@@ -84,7 +99,13 @@ main {
 }
 
 .subscription {
+    align-items: flex-start;
+    border-radius: 0 0 0 10px;
     background-color: var(--cyan);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: .8em;
 }
 
 .subscription__title,
@@ -96,14 +117,75 @@ main {
     color: var(--white);
 }
 
+.subscription__title,
+.recommendation__title {
+    font-size: 1.25em;
+}
+
+.subscription__price-container {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.subscription__price {
+    align-items: center;
+    display: flex;
+    font-size: 2.2em;
+    gap: .4em;
+}
+
+.subscription__value {
+    font-size: .5em;
+    opacity: .6;
+}
+
 .subscription__button {
     background-color: var(--bright-yellow);
+    border-radius: 6px;
+    box-shadow: 0 0 22px var(--black);
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: .8em;
+    width: 100%;
 }
 
 .recommendation {
     background-color: var(--light-cyan);
+    border-radius: 0 0 10px 0;
+}
+
+.recommendation__title {
+    padding-bottom: .8em;
+}
+
+.recommendation__links {
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
 }
 
 .recommendation__link {
-    opacity: .6;
+    opacity: .8;
+}
+
+@media only screen and (max-width: 690px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .community,
+    .subscription,
+    .recommendation {
+        padding: 2em 1.5em;
+    }
+
+    .subscription {
+        border-radius: 0;
+    }
+
+    .recommendation {
+        border-radius: 0 0 10px 10px;
+    }
 }
